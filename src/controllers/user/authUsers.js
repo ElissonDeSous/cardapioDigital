@@ -34,6 +34,8 @@ class authUsers {
       )
 
       response.status(200).json({id:usuario.id,nome:usuario.name,email:usuario.email,token:tokens})
+
+      
     
   }
 }
