@@ -14,7 +14,7 @@ class authUsers {
         },
       });
       if (!usuario) {
-        response.status(400).json({ mensagem: "email ja existe" });
+        response.status(400).json({ mensagem: "email não existe" });
       }
       const senha = await compare(password, usuario.senha);
       if (!senha) {

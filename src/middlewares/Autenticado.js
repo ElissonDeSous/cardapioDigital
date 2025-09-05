@@ -4,7 +4,7 @@ export function Autenticado(req, res, next) {
   const authToken = req.headers.authorization;
 
   if (!authToken) {
-    res.status(401).end();
+    res.status(401).json({mensagem:"token nao fornecido"});
   }
     
   const [,token] = authToken.split(" ")
@@ -14,7 +14,12 @@ export function Autenticado(req, res, next) {
         token,
         process.env.JWT_SECRET, 
     )
-    console.log(verificar)
+
+    req.userId = verificar.sub
+
+    
+
+    
   } catch (error) {
     res.status(401).end()
   }
