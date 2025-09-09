@@ -39,9 +39,7 @@ model Produtos{
   updateDate DateTime @updatedAt
 
   Category  categoria @relation(fields: [CategoriaId],references: [id])
-
-
-   Int
+  CategoriaId Int
   pedidositems Item[]
 }
 
